@@ -17,7 +17,7 @@ class Page
 	];
 
 	// classe construtora.
-	public function __construct($opts = array())
+	public function __construct($opts = array(), $tpl_dir = "/views/")
 	{
 
 		// faz um merge com os parametros default e opts, armazenando em options.
@@ -25,7 +25,7 @@ class Page
 
 		// configuração do tpl
 		$config = array(
-			"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"] . "/views/",			// diretorio das views
+			"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"] . $tpl_dir ,			// diretorio das views
 			"cache_dir"     => $_SERVER["DOCUMENT_ROOT"] . "/views-cache/",		// diretorio das views cache
 			"debug"         => false // set to false to improve the speed
 	   );
