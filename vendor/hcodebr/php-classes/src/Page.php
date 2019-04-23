@@ -13,6 +13,8 @@ class Page
 	private $options = [];
 	// dados padrao, caso nao seja iniciado nenhum option;
 	private $defaults = [
+	    "header" => true,
+        "footer" => true,
 		"data"=>[]
 	];
 
@@ -35,8 +37,9 @@ class Page
 		$this->tpl = new Tpl();
 		// associa os dados de options na tpl.
 		$this->assignData($this->options["data"]);
-		// desenha o header do html
-		$this->tpl->draw("header");
+		// desenha o header do html se habilitado o header
+        if($this->options["header"])
+		    $this->tpl->draw("header");
 	
 	}
 	
@@ -56,10 +59,11 @@ class Page
 
 	}
 
-	// metodo destrutor, desenhando o footer no html ao fim;
+	// metodo destrutor, desenhando o footer no html ao fim, se habilitado
 	public function __destruct()
 	{
-		$this->tpl->draw("footer");
+	    if ($this->options["footer"])
+		    $this->tpl->draw("footer");
 	}
 
 }
