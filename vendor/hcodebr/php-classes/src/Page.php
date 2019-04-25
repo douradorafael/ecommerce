@@ -59,6 +59,11 @@ class Page
 
 	}
 
+	public function redirect($location){
+	    header("Location: $location");
+	    exit;
+    }
+
 	// metodo destrutor, desenhando o footer no html ao fim, se habilitado
 	public function __destruct()
 	{
